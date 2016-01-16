@@ -90,7 +90,25 @@ extern "C" {
  * macro. There (p. 28) is defined up to 50 points in polygon.
  * So 50 points with x and y plus two for holding extra data gives...
  */
-#define APERTURE_PARAMETERS_MAX 102
+//#define APERTURE_PARAMETERS_MAX 102
+
+//  Modified below from 102 to 10002, I'm not sure where the original author above
+//  got the value of 50 points in a polygon, the spec at 
+//  https://www.ucamco.com/files/downloads/file/81/the_gerber_file_format_specification.pdf
+//  on page 119 seems to indicate that 5000 might be the limmit?
+//  " n-point polygon defined by its start point and n subsequent points [...]
+//    The maximum number of subsequent points n is 5000."
+// so following the calculation from the author above  the actual number would be
+// 10002 not 102, rather a large difference.  The gerber I was attempting to view 
+// had at least one arperture with over 200 points and gerbv  had errors displaying it
+// (mis-shapen polygon).
+//
+// After changing to this larger number the gerber displayed correctly
+// and I noticeed no ill-effects.
+//
+//  -- James Sleeman <james@gogo.co.nz> 
+
+#define APERTURE_PARAMETERS_MAX 10002
 #define GERBV_SCALE_MIN 10
 #define GERBV_SCALE_MAX 3000
 #define MAX_ERRMSGLEN 25
