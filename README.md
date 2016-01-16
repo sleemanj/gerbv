@@ -17,6 +17,7 @@ These are the brief instructions for Linux building, see gerbv's instructions fo
 then run it (make sure you run the one you installed, ie, /usr/local/bin/gerbv )
 
 The following (gerbv) switches are available to configure:
+
     --help: Lists all configure options.
     --enable-debug: Program will output lots of debug spew while running. (default = no -> no debug output by default.)
     --enable-unit-mm: Set default unit for coordinates in status bar to mm (default = no -> units = inches by default.)
